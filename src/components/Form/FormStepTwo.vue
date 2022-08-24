@@ -7,7 +7,7 @@
       type="text"
       placeholder="e.g. James"
       autocomplete="off"
-    ></base-input>
+    ><p class="error-info" v-if="validation.name===false">Please check your name</p></base-input>
        <base-input
       v-model.trim="user.lastName"
       label="LAST NAME"
@@ -15,7 +15,7 @@
       type="text"
       placeholder="e.g. Wilson"
       autocomplete="off"
-    ></base-input>
+    ><p class="error-info" v-if="validation.lastName===false">Please check your last name</p></base-input>
        <base-input
       v-model.trim="user.birthDate"
       label="DATE OF BIRTH"
@@ -23,9 +23,10 @@
       type="date"
       placeholder="DD/MM/YYYY"
       autocomplete="off"
-    ><p class="error-info">You should be minimum 18 years old</p></base-input>
+    ><p class="additional-info" :class="{'error-info' : validation.birthDate===false}">You should be minimum 18 years old</p></base-input>
 
       <base-checkbox @isChecked="termsAccepted" id="terms" value="confirmed" name="terms">I accept <a href="#">Privacy Policy</a></base-checkbox> 
+      <p class="error-info" v-if="validation.termsConfirmed===false">You must accept our privacy policy</p>
 
         <div class="form-row">
            <base-button type="button" class="btn btn-transparent"><a href="#" class="additional-text">Log in instead</a></base-button>
@@ -51,10 +52,10 @@ export default {
         termsConfirmed: false,
       },
       validation: {
-        name: false,
-        lastName: false,
-        birthDate: false,
-        termsConfirmed: false
+        name: null,
+        lastName: null,
+        birthDate: null,
+        termsConfirmed: null
       },
   isChecked: false,
     }

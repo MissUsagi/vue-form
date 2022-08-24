@@ -46,6 +46,7 @@ export default {
    font-family: 'Roboto', sans-serif;
    background: #fff;
    height: 100vh;
+   width: 100vw;
    }
 
    a {
@@ -61,9 +62,17 @@ export default {
    .app-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin-top: 60px;
+   }
+
+   .additional-info {
+    text-align: left;
+    margin: 10px 0 5px 0;
+    font-size: 0.8rem;
+    color: var(--additional-color);
+    text-align: start;
    }
    
    .error-info {
@@ -77,4 +86,12 @@ export default {
    .error-input {
     border: 2px solid var(--primary-dark);
    }
+
+      @media(max-width: 768px) {
+      .app-container{
+         margin-top: 40px;
+      }
+   }
+
+
 </style>

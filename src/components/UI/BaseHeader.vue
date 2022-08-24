@@ -27,4 +27,21 @@ header {
       color: #343541;
       }
    span {color: var(--primary-color);}
+
+   
+   @media(max-width: 768px) {
+     h1 {
+         font-size: 3.5rem;
+         text-align: left;
+         
+     }
+   }
+
+    @media(max-width: 500px) {
+     h1 {
+         font-size: 2.6rem;
+         text-align: left;
+         word-wrap: break-word;        
+     }
+   }
 </style>
